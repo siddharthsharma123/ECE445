@@ -4,7 +4,7 @@
 
 
 #define LEFT_MOTOR_FORWARD_PIN 4 
-#define LEFT_MOTOR_BACKWARD_PIN 0  
+#define LEFT_MOTOR_BACKWARD_PIN 5 
 #define RIGHT_MOTOR_FORWARD_PIN 6 
 #define RIGHT_MOTOR_BACKWARD_PIN 7 
 #define ULTRASONIC_LEFT_PIN 8 
@@ -26,5 +26,20 @@ Ultrasonics * sensorsArray = new Ultrasonics(ULTRASONIC_LEFT_PIN, ULTRASONIC_MID
 Motors * motorDriver = new Motors(LEFT_MOTOR_FORWARD_PIN, LEFT_MOTOR_BACKWARD_PIN, RIGHT_MOTOR_FORWARD_PIN, RIGHT_MOTOR_BACKWARD_PIN);
 void loop(){ 
   float distance[3]; //This array holds all the distances ; 
-  sensorsArray->Scan(distance);
+  sensorsArray->Scan(distance); //get distances infront of each ulrtasonic
+//  Serial.print(distance[0]);  
+//  Serial.print(" ");
+//  Serial.print(distance[1]);  
+//  Serial.print(" ");
+//  Serial.print(distance[2]); 
+//  Serial.print(" "); 
+//  Serial.println(" "); 
+//  if(distance[1] > 10){ 
+      motorDriver->moveForward();
+//    } 
+//   else{
+//      motorDriver->stopMotors();
+//    }
+// 
+
 }

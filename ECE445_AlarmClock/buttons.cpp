@@ -1,4 +1,4 @@
-#include <"Arduino.h">
+#include <Arduino.h>
 #include "buttons.h"   
 
 Buttons::Buttons(int loadPin, int clockEnablePin, int clockInPin,  int dataInPin){
@@ -20,9 +20,11 @@ byte Buttons::getButtonsPressed(){
   delayMicroseconds(5);
  
   // Get data from 74HC165
-  digitalWrite(this->clockIn, HIGH);
+  digitalWrite(this->clockInPin, HIGH);
   digitalWrite(this->clockEnablePin, LOW);
-  byte incoming = shiftIn(this->dataInPin, this->clockIn, LSBFIRST);
-  digitalWrite(this->clockEnablePin, HIGH);
-  delay(200);
+  byte incoming = shiftIn(this->dataInPin, this->clockInPin, LSBFIRST); 
+  incoming = ~incoming;
+  digitalWrite(this->clockEnablePin, HIGH);  
+  delay(200); 
+  return incoming;
 }

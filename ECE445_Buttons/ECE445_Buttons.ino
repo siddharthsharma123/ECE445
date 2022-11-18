@@ -32,11 +32,11 @@ void loop()
   byte buttonsState = buttons->getButtonsPressed(); 
   // Print to serial monitor or LCD
   buttonsState =  ~buttonsState;    
-  if(buttonsState > 0){
-    i++;
-  }
+  // if(buttonsState > 0){
+  //   i++;
+  // }
   // Serial.print("Buttons State: ");
   // Serial.println(buttonsState, DEC); 
-  lcd.print(i); 
+  lcd.print(buttonsState); 
   delay(200);
 }

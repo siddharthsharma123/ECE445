@@ -62,7 +62,7 @@ void Motors::stopMotors(){
     digitalWrite(LeftMotorBackward, LOW);
     digitalWrite(RightMotorBackward, LOW); 
     digitalWrite(LeftMotorForward, LOW); 
-    digitalWrite(LeftMotorBackward, LOW);
+    digitalWrite(RightMotorForward, LOW);
   }
 
 int Motors::getLeftMotorForward() {
